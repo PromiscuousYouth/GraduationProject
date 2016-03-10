@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ColumnViewController : UIViewController
+@interface ColumnViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 
 @end

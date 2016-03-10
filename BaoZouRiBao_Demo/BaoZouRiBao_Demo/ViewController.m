@@ -42,6 +42,7 @@
     
     
     
+    
 //    self.title = @"暴走日报";
     
     if (buttonIndex == 0)
@@ -56,11 +57,14 @@
     
     //隐藏Nav
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-#warning Appdelegate 更改
+//#warning Appdelegate 更改
     //右侧按钮
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"改变" style:UIBarButtonItemStyleDone target:self action:@selector(switchStyle:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"改变" style:UIBarButtonItemStylePlain target:self action:@selector(switchStyle:)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_fav_enable.png"] style:UIBarButtonItemStyleDone target:self action:@selector(switchStyle:)];
+    
     //左侧按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"side_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(menuPop:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"side_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(liftMenuPop:)];
 
     
     
@@ -76,7 +80,7 @@
     titles = @[@"新建交流QQ群：185534916 ",
                @"感谢您的支持，如果下载的",
                @"如果代码在使用过程中出现问题",
-               @"您可以发邮件到gsdios@126.com"
+               @"您可以发邮件到gsdios@126.com",
                @"如果代码在使用过程中出现问题",
                @"您可以发邮件到gsdios@126.com"
                ];
@@ -101,7 +105,7 @@
     self.sectionBar.selectedTextColor = [UIColor blueColor];
     self.sectionBar.nomarlTextColor = [UIColor redColor];
     self.sectionBar.backgroundColor = [UIColor blackColor];
-    self.menuHeight = 64.0f;
+//    self.menuHeight = 64.0f;
     
     self.useTransform3DEffects = YES;
     
@@ -109,13 +113,18 @@
     [self refreshViews];
 }
 //打开左侧菜单
-- (void)menuPop:(id)sender
+- (void)liftMenuPop:(id)sender
 {
     MVYSideMenuController * liftMenuControll = [self sideMenuController];
     if (liftMenuControll)
     {
         [liftMenuControll openMenu];
     }
+}
+//打开右侧视图
+- (void)rightMenuPop:(id)sender
+{
+    NSLog(@"点击了按钮");
 }
 
 //- (void)moveManually:(id)sender
@@ -138,20 +147,21 @@
 
 - (UIView *)contentViewForPage:(ZWSPage *)page atIndex:(NSInteger)index
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:page.bounds];
+//    UITableView *
+    _tableView = [[UITableView alloc] initWithFrame:page.bounds];
 //    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
 
-    tableView.dataSource = self;
-    tableView.delegate = self ;
+    _tableView.dataSource = self;
+    _tableView.delegate = self ;
     
 //    [tableView registerClass:[RecommendTableViewCell class] forCellReuseIdentifier:@"cell"];
     switch (index)
     {
         case 0:
         {
-            [tableView registerNib:[UINib nibWithNibName:@"RecommendTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+            [_tableView registerNib:[UINib nibWithNibName:@"RecommendTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
             
-            tableView.rowHeight = 90 ;
+            _tableView.rowHeight = 90 ;
             
             //自定义scrollView表头
             SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 280, SCWIDTH, 180) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -167,17 +177,16 @@
                 cycleScrollView.imageURLStringsGroup = imagesURLStrings;
             });
             //设置表头
-            tableView.tableHeaderView = cycleScrollView ;
+            _tableView.tableHeaderView = cycleScrollView ;
             self.title = @"推荐";
             
-
         }
             break;
          case 1:
         {
-            [tableView registerNib:[UINib nibWithNibName:@"VideoTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+            [_tableView registerNib:[UINib nibWithNibName:@"VideoTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
             
-            tableView.rowHeight = 180 ;
+            _tableView.rowHeight = 180 ;
             
             self.title = @"视频";
         }
@@ -191,11 +200,7 @@
     
     
     
-    
-    
-    
-    
-    return tableView;
+    return _tableView;
 }
 
 
@@ -232,6 +237,7 @@
 //        cell.playNum.textColor = [UIColor blackColor];
         [cell.videoImgView sd_setImageWithURL:[NSURL URLWithString:@"http://"]placeholderImage:[UIImage imageNamed:@"placeholder_Image.png"]];
         
+        
         return cell;
     }
    
@@ -250,7 +256,6 @@
     {
         DetailViewController * detailVC = [[DetailViewController alloc]init];
         [self.navigationController pushViewController:detailVC animated:YES];
-        
     }
     
 }

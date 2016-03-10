@@ -10,6 +10,6 @@
 #import "ZWSViewController.h"
 @interface ViewController : ZWSViewController
 
-
+@property (nonatomic,strong)UITableView *tableView ;
 @end
 

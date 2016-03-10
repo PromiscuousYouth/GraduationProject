@@ -25,8 +25,19 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"side_icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(menuPop:)];
     
     [CommonTool contentViewController:columnNav];
-    self.view.backgroundColor = [UIColor redColor];
+//    self.view.backgroundColor = [UIColor redColor];
     self.title = @"栏目";
+    
+    UITableView * columnTableView = [[UITableView alloc]initWithFrame:self.view.frame];
+    
+    columnTableView.dataSource = self ;
+    columnTableView.delegate = self ;
+    
+    [columnTableView registerNib:[UINib nibWithNibName:@"RecommendTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    columnTableView.rowHeight = 90 ;
+    
+    [self.view addSubview:columnTableView];
     
 }
 //打开左侧菜单
@@ -39,6 +50,48 @@
     }
 }
 
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 36 ;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    //    cell.backgroundColor = [UIColor clearColor];
+    cell.titleName.textColor = [UIColor blackColor];
+    cell.titleName.text = @"栏目.....";
+    
+    [cell.pictureImgView sd_setImageWithURL:[NSURL URLWithString:@"http://"]placeholderImage:[UIImage imageNamed:@"Dark_Image_Preview.jpg"]];
+    
+    return cell ;
+}
+//点击Cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    NSLog(@"%ld",(long)indexPath.row);
+        DetailViewController * detailVC = [[DetailViewController alloc]init];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
+//返回区头高度
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 3.0;
+    
+}
+//返回区尾高度
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 7.0;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
