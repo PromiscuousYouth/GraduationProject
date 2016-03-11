@@ -66,7 +66,7 @@
     RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     //    cell.backgroundColor = [UIColor clearColor];
     cell.titleName.textColor = [UIColor blackColor];
-    cell.titleName.text = @"栏目.....";
+    cell.titleName.text = @"栏目..........";
     
     [cell.pictureImgView sd_setImageWithURL:[NSURL URLWithString:@"http://"]placeholderImage:[UIImage imageNamed:@"Dark_Image_Preview.jpg"]];
     

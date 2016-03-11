@@ -16,6 +16,7 @@
 #import "RecommendTableViewCell.h"
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
+#import "SearchViewController.h"
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 

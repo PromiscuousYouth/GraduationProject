@@ -18,7 +18,7 @@
 #import "MVYSideMenuController.h"
 
 #define SCWIDTH  self.view.bounds.size.width
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
+@interface ViewController ()
 {
     UIScrollView * scrollView ;
     
@@ -32,6 +32,11 @@
 @end
 
 @implementation ViewController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+}
 
 
 - (void)viewDidLoad {
@@ -154,7 +159,7 @@
     _tableView.dataSource = self;
     _tableView.delegate = self ;
     
-//    [tableView registerClass:[RecommendTableViewCell class] forCellReuseIdentifier:@"cell"];
+    //判断是第几个视图
     switch (index)
     {
         case 0:
@@ -186,9 +191,10 @@
         {
             [_tableView registerNib:[UINib nibWithNibName:@"VideoTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
             
-            _tableView.rowHeight = 180 ;
+            _tableView.rowHeight = 280 ;
             
             self.title = @"视频";
+            
         }
             break;
             
@@ -215,10 +221,9 @@
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //推荐
     if (buttonIndex == 0)
     {
         RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -230,12 +235,19 @@
         
         return cell;
     }
+    //视频
     else
     {
+        
         VideoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
         cell.playNum.text = @"23333";
-//        cell.playNum.textColor = [UIColor blackColor];
+        cell.playNum.textColor = [UIColor blackColor];
         [cell.videoImgView sd_setImageWithURL:[NSURL URLWithString:@"http://"]placeholderImage:[UIImage imageNamed:@"placeholder_Image.png"]];
+        
+#warning -- 视频
+        
+//        cell.imageButton.tag = indexPath.row ;
+        
         
         
         return cell;
@@ -277,6 +289,18 @@
 {
     NSLog(@"---点击了第%ld张图片", (long)index);
 
+}
+
+//视频播放
+//支持横竖屏显示
+ - (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll ;
+}
+
+- (void)videoPlaying:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

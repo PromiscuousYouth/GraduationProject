@@ -19,6 +19,7 @@
 		084535301C9164F70000AF03 /* icon_fav_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0845352F1C9164F70000AF03 /* icon_fav_enable@2x.png */; };
 		084535371C91697D0000AF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 084535351C91697D0000AF03 /* Main.storyboard */; };
 		0845356F1C91AD220000AF03 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0845356E1C91AD220000AF03 /* SearchViewController.m */; };
+		084535741C91D9D90000AF03 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084535731C91D9D90000AF03 /* AVKit.framework */; };
 		089362D01C86E06100AE544D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362CF1C86E06100AE544D /* main.m */; };
 		089362D31C86E06100AE544D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362D21C86E06100AE544D /* AppDelegate.m */; };
 		089362D61C86E06100AE544D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362D51C86E06100AE544D /* ViewController.m */; };
@@ -75,6 +76,7 @@
 		084535361C91697D0000AF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0845356D1C91AD220000AF03 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		0845356E1C91AD220000AF03 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		084535731C91D9D90000AF03 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		089362CB1C86E06100AE544D /* BaoZouRiBao_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoZouRiBao_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089362CF1C86E06100AE544D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		089362D11C86E06100AE544D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084535741C91D9D90000AF03 /* AVKit.framework in Frameworks */,
 				73196E71884DF5AF73EA4A51 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +355,7 @@
 		FA7B7AB05E0C6DDD0696183A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				084535731C91D9D90000AF03 /* AVKit.framework */,
 				EFE9F7B067960A4389EF4B41 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -391,6 +395,7 @@
 				TargetAttributes = {
 					089362CA1C86E06100AE544D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = JK3DEUP7YL;
 					};
 				};
 			};

@@ -142,7 +142,8 @@
             break;
         case 3:
         {
-            
+            SearchViewController * searchVC = [[SearchViewController alloc]init];
+            [[self sideMenuController] changeContentViewController:searchVC closeMenu:YES];
         }
             break;
         case 4:

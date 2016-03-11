@@ -17,4 +17,6 @@
 //评论
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
+
 @end

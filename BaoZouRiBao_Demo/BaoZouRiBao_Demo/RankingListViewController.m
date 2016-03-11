@@ -98,7 +98,7 @@
     RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     //    cell.backgroundColor = [UIColor clearColor];
     cell.titleName.textColor = [UIColor blackColor];
-    cell.titleName.text = @"For Test......";
+    cell.titleName.text = @"排行榜......";
     
     [cell.pictureImgView sd_setImageWithURL:[NSURL URLWithString:@"http://"]placeholderImage:[UIImage imageNamed:@"Dark_Image_Preview.jpg"]];
     
