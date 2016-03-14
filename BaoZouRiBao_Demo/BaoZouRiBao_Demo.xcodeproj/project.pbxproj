@@ -20,6 +20,7 @@
 		084535371C91697D0000AF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 084535351C91697D0000AF03 /* Main.storyboard */; };
 		0845356F1C91AD220000AF03 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0845356E1C91AD220000AF03 /* SearchViewController.m */; };
 		084535741C91D9D90000AF03 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 084535731C91D9D90000AF03 /* AVKit.framework */; };
+		0886FB861C9402ED00CF975F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0886FB851C9402ED00CF975F /* SettingViewController.m */; };
 		089362D01C86E06100AE544D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362CF1C86E06100AE544D /* main.m */; };
 		089362D31C86E06100AE544D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362D21C86E06100AE544D /* AppDelegate.m */; };
 		089362D61C86E06100AE544D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 089362D51C86E06100AE544D /* ViewController.m */; };
@@ -77,6 +78,8 @@
 		0845356D1C91AD220000AF03 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		0845356E1C91AD220000AF03 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		084535731C91D9D90000AF03 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		0886FB841C9402ED00CF975F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		0886FB851C9402ED00CF975F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		089362CB1C86E06100AE544D /* BaoZouRiBao_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoZouRiBao_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		089362CF1C86E06100AE544D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		089362D11C86E06100AE544D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -204,6 +207,15 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		0886FB831C94020100CF975F /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				0886FB841C9402ED00CF975F /* SettingViewController.h */,
+				0886FB851C9402ED00CF975F /* SettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		089362C21C86E06100AE544D = {
 			isa = PBXGroup;
 			children = (
@@ -261,10 +273,11 @@
 			isa = PBXGroup;
 			children = (
 				08C118EA1C8EC08300A11FAA /* LiftMenu */,
-				08DE52801C8DDC7000281DE5 /* MainViewController */,
+				08DE52801C8DDC7000281DE5 /* MainVC */,
 				082A124A1C8FCF4700E6AAF2 /* RankingList */,
 				082A12501C905A2900E6AAF2 /* Column */,
 				0845356C1C91ACA30000AF03 /* Search */,
+				0886FB831C94020100CF975F /* Setting */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -282,7 +295,7 @@
 			name = MainCell;
 			sourceTree = "<group>";
 		};
-		08DE52801C8DDC7000281DE5 /* MainViewController */ = {
+		08DE52801C8DDC7000281DE5 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
 				089362D41C86E06100AE544D /* ViewController.h */,
@@ -290,7 +303,7 @@
 				08DE527A1C8DAAE300281DE5 /* DetailViewController.h */,
 				08DE527B1C8DAAE300281DE5 /* DetailViewController.m */,
 			);
-			name = MainViewController;
+			name = MainVC;
 			sourceTree = "<group>";
 		};
 		08DE52811C8DDCAC00281DE5 /* View */ = {
@@ -521,6 +534,7 @@
 				082D2DF81C8723F600213D4A /* ZWSMenuLabel.m in Sources */,
 				082A124E1C90499C00E6AAF2 /* CommonTool.m in Sources */,
 				08DE528D1C8DDFC800281DE5 /* MVYSideMenuController.m in Sources */,
+				0886FB861C9402ED00CF975F /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

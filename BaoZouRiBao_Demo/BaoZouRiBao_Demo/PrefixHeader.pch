@@ -17,6 +17,10 @@
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
 #import "SearchViewController.h"
+#import "RankingListViewController.h"
+#import "SettingViewController.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
