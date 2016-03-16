@@ -27,6 +27,8 @@
     NSArray *titles ;
     //网络请求图片URL数组
     NSArray *imagesURLStrings ;
+    
+    AVPlayerLayer *playerLayer;
 }
 
 @end
@@ -246,8 +248,28 @@
         
 #warning -- 视频
         
-//        cell.imageButton.tag = indexPath.row ;
+        AVPlayer *player = [AVPlayer playerWithURL:[NSURL URLWithString:@"http://baobab.wdjcdn.com/14562919706254.mp4"]];
+        playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
         
+        playerLayer.frame = cell.videoImgView.frame;
+        //playerLayer.frame = CGRectMake(0, 0, 160, 284);
+        playerLayer.position = cell.videoImgView.center;
+        [cell.videoImgView.layer addSublayer:playerLayer];
+        
+//        playerLayer.masksToBounds = YES;
+//        playerLayer.cornerRadius = 20;
+//        playerLayer.borderWidth = 1;
+//        playerLayer.borderColor = [UIColor grayColor].CGColor;
+        
+        //[player play];
+        
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(removePlayer)
+         name:AVPlayerItemDidPlayToEndTimeNotification
+         object:nil];
+
         
         
         return cell;
@@ -255,6 +277,10 @@
    
 }
 
+- (void)removePlayer
+{
+    [playerLayer removeFromSuperlayer];
+}
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 //{
 //

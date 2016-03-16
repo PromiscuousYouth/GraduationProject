@@ -152,35 +152,38 @@
                 break;
             case 1:
             {
+                //排行榜
 //                [[self sideMenuController] closeMenu];
                 
                 RankingListViewController * rankingListVC = [[RankingListViewController alloc]init];
                 [[self sideMenuController] changeContentViewController:rankingListVC closeMenu:YES];
-                
-                
+   
             }
                 break;
             case 2:
             {
+                //栏目
                 ColumnViewController * columnVC = [[ColumnViewController alloc]init];
                 [[self sideMenuController] changeContentViewController:columnVC closeMenu:YES];
             }
                 break;
             case 3:
             {
+                //搜索
                 SearchViewController * searchVC = [[SearchViewController alloc]init];
                 [[self sideMenuController] changeContentViewController:searchVC closeMenu:YES];
             }
                 break;
             case 4:
             {
+                //设置
                 SettingViewController * setVC = [[SettingViewController alloc]init];
                 [[self sideMenuController] changeContentViewController:setVC closeMenu:YES];
             }
                 break;
             case 5:
             {
-                
+                //离线下载
             }
                 break;
             case 6:
@@ -211,6 +214,8 @@
 //登录
 - (void)loginClick:(id)sender
 {
+    PersonalViewController * personalVC = [[PersonalViewController alloc]init];
+    [[self sideMenuController] changeContentViewController:personalVC closeMenu:YES];
     NSLog(@"点击登录");
 }
 

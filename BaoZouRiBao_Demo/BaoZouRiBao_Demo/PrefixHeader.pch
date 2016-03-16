@@ -21,6 +21,7 @@
 #import "SettingViewController.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
+#import "PersonalViewController.h"
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
